@@ -1,3 +1,18 @@
+@media screen and (max-width:420px) {
+  .container{
+    width: 100%;
+  }  
+}
+@media screen and (min-width:421px) {
+  .container{
+    width: 75%;
+  }
+}
+@media screen and (min-width:720px) {
+  .container{
+    max-width: 40%;
+  }
+}
 body{
   background-color: rgb(255, 251, 240);
   line-height: 1.4em;
@@ -8,6 +23,7 @@ body{
 }
 .App{
   width: 100vw;
+  word-break: break-word;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,14 +50,13 @@ input[type="text"]{
   width: 100%;
   font-size: 1rem;
 }
-input[type="text"]:focus, span:focus{
+input[type="text"]:focus{
   outline: none;
 }
 input::placeholder{
   color: #4d4d4d5e;
   font-style: italic;
   font-size: 1rem;
- 
 }
 input[type="checkbox"]{
   margin: 0;
@@ -62,20 +77,20 @@ form{
   padding: 8px;
   padding-left: 15px;
   padding-top: 23px;
+  border-bottom: 0.5px solid #4d4d4d65;
 }
 #liste{
   list-style: none;
   padding: 0;
-  margin: 8px 0px;
   font-size: 1rem;
+  margin: 0;
 }
 ul{
   border-top: 0.5px solid #4d4d4d65;
 }
 li{
   border-bottom: 0.5px solid #4d4d4d65;
-  padding: 10px 15px 18px 15px;
-  margin: 8px 0px;
+  padding: 14px 15px 14px 15px;
 }
 li:hover{
   box-shadow: 2px 2px #e0e0e077
@@ -85,46 +100,54 @@ li:hover{
   justify-content: space-between;
   align-items: center;
 }
-.listit > span {
+.listit span {
   padding-right: 5px;
+}
+.inputspan{
+  display: flex !important;
 }
 .checked{
   font-style: italic;
   text-decoration: line-through;
 }
 button {
-	margin: 0;
-	padding: 0.15rem;
-  border: 0;
 	vertical-align: baseline;
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   background-color: inherit;
-}
-.clear{
-  display: none
-}
-.foot{
-  padding: 8px 12px 11px;
-  display: flex;
-  align-items: center;
-}
-button{
   margin-left: auto;
   margin-right: 3px;
   padding: 4px;
   border: 1px solid #FFFFFF;
+}
+.foot{
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+}
+.footbuttons{
+  padding: 9.5px 12px;
+  display: flex;
+}
+.footbuttons button{
+  margin: auto;
+  padding: 7px 10% !important;
 
 }
-.foot button:hover{
+.footbuttons button:hover, .foot button:hover{
   border: 1px solid #ece3c7f5;
   border-radius: 3px;
 }
 .active{
-  border: 1px solid #ad8e2ef5;
+  border: 1px solid #ad8e2ef5 !important;
   border-radius: 3px;
 }
 .foot span{
   margin-right: auto;
+}
+button:disabled{
+  color: #4d4d4d8c;
+  border: none !important;
 }

@@ -14,14 +14,9 @@ function Form({todos, setTodos}){
     setInput("")}
   }
 
-  const allInputChange = (event) => {
-    setTodos(todos.map((item)=>{return {value: item.value, done: event.target.checked}}))
-  }
-
   useEffect(()=>{localStorage.setItem("todos", todos)}, [todos])
 
   return <form onSubmit={inputSubmit} className="form">
-    <input type="checkbox" onChange={allInputChange} />
     <input type="text" onChange={inputChange} value={input} placeholder="What's your plan?"/>
   </form>
 

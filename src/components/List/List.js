@@ -54,6 +54,11 @@ function List({todos, setTodos}){
   useEffect(()=>{localStorage.setItem("todos", JSON.stringify(todos))}, [todos])
   
   return <div>
+          <div className="footbuttons">
+        <button className={filter === "All" ? "active" : ""} onClick={all}>All</button>
+        <button className={filter === "Complete" ? "active" : ""} onClick={complete}>Completed</button>
+        <button className={filter === "Active" ? "active" : ""} onClick={active}>Active</button>
+      </div>
       <ul id="liste">
         {filtered
           .map((item, key)=>{
@@ -61,7 +66,7 @@ function List({todos, setTodos}){
               <span className="listit">
                 <span>
                   <input id={key} type="checkbox" checked={item.done} onChange={handleCheck}/>
-                  <span id={key} className={item.done ? "checked" : ""} onInput={valueCheck} contentEditable suppressContentEditableWarning={true}>{item.value}</span>
+                  <span id={key} className={item.done ? "checked" : ""} onInput={valueCheck}>{item.value}</span>
                 </span>
                 <span id={key} className="delete" onClick={deleteItem}>x</span>
               </span> 
@@ -69,12 +74,7 @@ function List({todos, setTodos}){
       </ul>
       <div className="foot">
       <span>{left} item{left === 1 ? false : "s"} left </span>
-      <div className="footbuttons">
-        <button className={filter === "All" ? "active" : ""} onClick={all}>All</button>
-        <button className={filter === "Complete" ? "active" : ""} onClick={complete}>Completed</button>
-        <button className={filter === "Active" ? "active" : ""} onClick={active}>Active</button>
-      </div>
-      <button id="clear" className={done > 0 ? "" : "clear"} onClick={clearList}>Clear Completed</button>
+      <button id="clear" disabled={done > 0 ? "" : "disabled"} onClick={clearList}>Clear Completed</button>
       </div>
     </div>
 }
